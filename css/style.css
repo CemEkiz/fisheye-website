@@ -42,11 +42,29 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 12px;
+}
+
+.photographer_section article a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 24px;
 }
 
 .photographer_section article h2 {
   color: #d3573c;
   font-size: 36px;
+}
+
+.photographer_section article h3 {
+  color: #901c1c;
+}
+
+.photographer_section article p:nth-of-type(2) {
+  color: #525252;
 }
 
 .photographer_section article img {
