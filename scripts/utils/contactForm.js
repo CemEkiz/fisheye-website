@@ -41,6 +41,7 @@ const checkLastName = () => {
   }
 };
 
+//
 const checkEmail = () => {
   const emailValue = email.value.trim();
 
@@ -52,7 +53,7 @@ const checkEmail = () => {
   }
 };
 
-// FIXME: the value of this input does'nt log in the console
+//
 const checkMessage = () => {
   const messageValue = message.value.trim();
 
@@ -69,7 +70,7 @@ form.addEventListener('submit', e => {
     checkFirstName() == false ||
     checkLastName() == false ||
     checkEmail() == false ||
-    checkMessage == false
+    checkMessage() == false
   ) {
     e.preventDefault();
     console.log('Un ou plusieurs champs sont vides !');
