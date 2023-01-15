@@ -73,3 +73,47 @@ h1 {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* ---------------- MEDIAS ---------------- */
+
+.medias {
+  margin: 60px 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.medias article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border: 1px solid red;
+}
+
+.medias article picture {
+  flex: 1;
+
+  border: 1px solid blue;
+}
+
+.medias article .medias-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.medias article picture img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.medias article video {
+  width: 300px;
+  justify-self: center;
+  align-self: center;
+}

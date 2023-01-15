@@ -50,7 +50,7 @@ async function getPhotographerDatas() {
 
 getPhotographerDatas();
 
-async function getPhotographerMedias() {
+const getPhotographerMedias = async () => {
   const medias = await fetch('data/photographers.json')
     .then(response => {
       return response.json();
@@ -63,14 +63,32 @@ async function getPhotographerMedias() {
     return media.photographerId === id;
   });
 
+  return photographerMedias;
+
   // console.log(photographerMedias);
   // console.log(photographerMedias[0]);
   // console.log(photographerMedias[0].image);
   // console.log(photographerMedias[0].date);
-}
+};
 
-getPhotographerMedias();
+// getPhotographerMedias();
 
 // TODO: Créer une fonction displayData (cf. index.js)
+async function displayData(medias) {
+  const mediasSection = document.querySelector('.medias');
+  // console.log(mediasSection);
+  console.log(medias);
+
+  medias.forEach(media => {
+    const mediaModel = mediasFactory(media);
+    const mediaCardDOM = mediaModel.getMediaCardDOM();
+    mediasSection.appendChild(mediaCardDOM);
+  });
+}
 
 // TODO: Créer une fonction init (cf. index.js)
+const init = async () => {
+  const medias = await getPhotographerMedias();
+  displayData(medias);
+};
+init();
