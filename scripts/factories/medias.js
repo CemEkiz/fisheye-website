@@ -13,26 +13,26 @@ function mediasFactory(data) {
     const card = document.createElement('div');
     card.classList.add('medias__card');
 
+    const $mediasCardTop = document.createElement('div');
+    $mediasCardTop.classList.add('medias__card__top');
+    const $image = document.createElement('img');
+    $image.setAttribute('src', imgSrc);
+    $image.setAttribute('alt', `${title}`);
+
     if (data.hasOwnProperty('image')) {
-      const $mediasCardTop = document.createElement('div');
-      $mediasCardTop.classList.add('medias__card__top');
-      const $image = document.createElement('img');
-      $image.setAttribute('src', imgSrc);
-      $image.setAttribute('alt', `${title}`);
       $mediasCardTop.appendChild($image);
       card.appendChild($mediasCardTop);
     }
 
+    $mediasCardTop.classList.add('medias__card__top');
+
+    const $video = document.createElement('video');
+    $video.setAttribute('controls', '');
+    const $source = document.createElement('source');
+    $source.setAttribute('src', videoSrc);
+    $source.setAttribute('type', 'video/mp4');
+
     if (data.hasOwnProperty('video')) {
-      const $mediasCardTop = document.createElement('div');
-      $mediasCardTop.classList.add('medias__card__top');
-
-      const $video = document.createElement('video');
-      $video.setAttribute('controls', '');
-      const $source = document.createElement('source');
-      $source.setAttribute('src', videoSrc);
-      $source.setAttribute('type', 'video/mp4');
-
       $video.appendChild($source);
       $mediasCardTop.appendChild($video);
 

@@ -119,3 +119,24 @@ h1 {
   justify-content: space-between;
   margin-top: 10px;
 }
+
+.modal-diapo {
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 500px;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 500;
+}
+
+.modal-diapo img {
+  width: 100%;
+}

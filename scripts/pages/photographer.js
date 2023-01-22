@@ -1,7 +1,6 @@
-//Mettre le code JavaScript lié à la page photographer.html
+// Mettre le code JavaScript lié à la page photographer.html
 let params = new URL(document.location).searchParams;
 let id = +params.get('id');
-// console.log(id);
 
 async function getPhotographerDatas() {
   const photographers = await fetch('data/photographers.json')
@@ -16,11 +15,7 @@ async function getPhotographerDatas() {
     return photographer.id === id;
   });
 
-  // console.log(photographerDatas[0]);
-  // console.log(photographerDatas[0].name);
-  // console.log(photographerDatas[0].country);
-
-  // TODO: Afficher l'UI ici
+  // Display the photographer info in his own page
   const photographHeader = document.querySelector('.photograph-header');
 
   const $photographerInfos = document.createElement('div');
@@ -64,20 +59,12 @@ const getPhotographerMedias = async () => {
   });
 
   return photographerMedias;
-
-  // console.log(photographerMedias);
-  // console.log(photographerMedias[0]);
-  // console.log(photographerMedias[0].image);
-  // console.log(photographerMedias[0].date);
 };
 
-// getPhotographerMedias();
-
-// TODO: Créer une fonction displayData (cf. index.js)
 async function displayData(medias) {
   const mediasSection = document.querySelector('.medias');
-  // console.log(mediasSection);
-  console.log(medias);
+
+  // Tri
 
   medias.forEach(media => {
     const mediaModel = mediasFactory(media);
@@ -86,9 +73,9 @@ async function displayData(medias) {
   });
 }
 
-// TODO: Créer une fonction init (cf. index.js)
 const init = async () => {
   const medias = await getPhotographerMedias();
   displayData(medias);
 };
+
 init();
