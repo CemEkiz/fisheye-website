@@ -7,7 +7,7 @@ function mediasFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
   const imgSrc = `assets/medias/${image}`;
-  const videoSrc = `assets/medias/${video}`;
+  const videoSrc = `/assets/medias/${video}`;
 
   function getMediaCardDOM() {
     const card = document.createElement('div');
@@ -15,16 +15,17 @@ function mediasFactory(data) {
 
     const $mediasCardTop = document.createElement('div');
     $mediasCardTop.classList.add('medias__card__top');
+    const $mediasCardBottom = document.createElement('div');
+    $mediasCardBottom.classList.add('medias__card__bottom');
+
     const $image = document.createElement('img');
-    $image.setAttribute('src', imgSrc);
+    $image.setAttribute('src', `${imgSrc}`);
     $image.setAttribute('alt', `${title}`);
 
     if (data.hasOwnProperty('image')) {
       $mediasCardTop.appendChild($image);
       card.appendChild($mediasCardTop);
     }
-
-    $mediasCardTop.classList.add('medias__card__top');
 
     const $video = document.createElement('video');
     $video.setAttribute('controls', '');
@@ -35,12 +36,8 @@ function mediasFactory(data) {
     if (data.hasOwnProperty('video')) {
       $video.appendChild($source);
       $mediasCardTop.appendChild($video);
-
       card.appendChild($mediasCardTop);
     }
-
-    const $mediasCardBottom = document.createElement('div');
-    $mediasCardBottom.classList.add('medias__card__bottom');
 
     const $title = document.createElement('h2');
     $title.textContent = `${title}`;
