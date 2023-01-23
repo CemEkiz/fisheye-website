@@ -78,7 +78,6 @@ async function slideCarousel() {
   const slides = document.querySelectorAll('.slide');
   const btnLeft = document.querySelector('.slider__btn--left');
   const btnRight = document.querySelector('.slider__btn--right');
-  console.log(slides);
 
   // To work with a better overview
   // document.querySelector('.slider').style.transform = 'scale(0.5)';
@@ -169,6 +168,12 @@ async function displayCarousel(medias) {
   btnSliderLeft.appendChild(iconLeft);
   carousel.appendChild(btnSliderLeft);
 
+  // TODO: Use this function with a close button
+  const closeLightbox = () => {
+    const lightbox = document.querySelector('.lightbox');
+    lightbox.style.display = 'none';
+  };
+
   medias.forEach(media => {
     const carouselModel = carouselFactory(media);
     const carouselSlideDOM = carouselModel.getCarouselSlideDOM();
@@ -178,9 +183,23 @@ async function displayCarousel(medias) {
   slideCarousel();
 }
 
+const openLightbox = () => {
+  const lightbox = document.querySelector('.lightbox');
+  lightbox.style.display = 'grid';
+};
+
 const init = async () => {
   const medias = await getPhotographerMedias();
   displayData(medias);
+
+  const mediaCards = document.querySelectorAll('.medias__card__top');
+
+  // TODO: Attribuer un nombre à chaque slide et faire en sorte que au clic
+  // d'une slide, ce soit la slide cliqué qui soit affiché
+  mediaCards.forEach(mediaCard => {
+    mediaCard.addEventListener('click', openLightbox);
+  });
+
   displayCarousel(medias);
 };
 
