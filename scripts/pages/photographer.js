@@ -73,7 +73,7 @@ async function displayData(medias) {
   });
 }
 
-async function slideCarousel() {
+async function slideCarousel(slideNumber) {
   // Logic
   const slides = document.querySelectorAll('.slide');
   const btnLeft = document.querySelector('.slider__btn--left');
@@ -100,8 +100,9 @@ async function slideCarousel() {
     // Init when the page is open or refresh
     const init = function () {
       // TranslateX chacune des slides : le 1er à 0%, le 2ème à 100%, le 3ème à 200%, etc. */
-      goToSlide(0);
+      goToSlide(slideNumber);
     };
+
     init();
 
     // Move to next side
@@ -197,7 +198,7 @@ async function displayCarousel(medias) {
     carousel.appendChild(slideWrapper);
   });
 
-  slideCarousel();
+  slideCarousel(0);
 }
 
 const openLightbox = () => {
@@ -210,11 +211,15 @@ const init = async () => {
   displayData(medias);
 
   const mediaCards = document.querySelectorAll('.medias__card__top');
+  console.log(mediaCards);
 
   // TODO: Attribuer un nombre à chaque slide et faire en sorte que au clic
   // d'une slide, ce soit la slide cliqué qui soit affiché
-  mediaCards.forEach(mediaCard => {
-    mediaCard.addEventListener('click', openLightbox);
+  mediaCards.forEach((mediaCard, i) => {
+    mediaCard.addEventListener('click', () => {
+      openLightbox();
+      slideCarousel(i);
+    });
   });
 
   displayCarousel(medias);
