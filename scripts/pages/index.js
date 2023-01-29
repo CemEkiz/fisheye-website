@@ -8,7 +8,6 @@ async function getPhotographers() {
       return data.photographers;
     });
 
-  console.log(photographers);
   return photographers;
 }
 
