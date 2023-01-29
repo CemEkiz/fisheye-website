@@ -84,7 +84,7 @@ async function slideCarousel(slideNumber) {
   // document.querySelector('.slider').style.overflow = 'visible';
 
   // For Changing Slide
-  let curSlide = 0;
+  let curSlide = slideNumber;
 
   // For stop at the last slide
   const maxSlide = slides.length;
@@ -105,7 +105,7 @@ async function slideCarousel(slideNumber) {
 
     init();
 
-    // Move to next side
+    // Move to next slide
     const nextSlide = function () {
       if (curSlide === maxSlide - 1) {
         curSlide = 0;
