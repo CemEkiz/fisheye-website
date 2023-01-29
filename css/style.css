@@ -249,13 +249,8 @@ main {
   right: 10px;
 }
 
-.carousel-icon {
-  font-size: 48px;
-  color: var(--clr-primary-400);
-}
-
 .carousel-icon.carousel-icon--close {
-  font-size: 40px;
+  width: 32px;
 }
 
 /* ---------------- PHOTOGRAPHER HEADER ---------------- */

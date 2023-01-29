@@ -144,29 +144,27 @@ async function createCarousel(medias) {
   // Button Right
   const btnSliderRight = document.createElement('button');
   btnSliderRight.classList.add('slider__btn', 'slider__btn--right');
-  const iconRight = document.createElement('i');
-  iconRight.classList.add('uil', 'uil-angle-right-b', 'carousel-icon');
+  const iconRight = document.createElement('img');
+  iconRight.setAttribute('src', 'assets/icons/chevron-right.svg');
+  iconRight.classList.add('carousel-icon');
   btnSliderRight.appendChild(iconRight);
   carousel.appendChild(btnSliderRight);
 
   // Button Left
   const btnSliderLeft = document.createElement('button');
   btnSliderLeft.classList.add('slider__btn', 'slider__btn--left');
-  const iconLeft = document.createElement('i');
-  iconLeft.classList.add('uil', 'uil-angle-left-b', 'carousel-icon');
+  const iconLeft = document.createElement('img');
+  iconLeft.setAttribute('src', 'assets/icons/chevron-left.svg');
+  iconLeft.classList.add('carousel-icon');
   btnSliderLeft.appendChild(iconLeft);
   carousel.appendChild(btnSliderLeft);
 
   // Close Button
   const btnSliderClose = document.createElement('button');
   btnSliderClose.classList.add('slider__btn', 'slider__btn--close');
-  const iconClose = document.createElement('i');
-  iconClose.classList.add(
-    'uil',
-    'uil-times',
-    'carousel-icon',
-    'carousel-icon--close'
-  );
+  const iconClose = document.createElement('img');
+  iconClose.setAttribute('src', 'assets/icons/close-lightbox.svg');
+  iconClose.classList.add('carousel-icon', 'carousel-icon--close');
   btnSliderClose.appendChild(iconClose);
   carousel.appendChild(btnSliderClose);
 
