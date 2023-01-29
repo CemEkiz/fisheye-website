@@ -5,16 +5,24 @@ function carouselFactory(data) {
   const videoSrc = `/assets/medias/${video}`;
 
   function getCarouselSlideDOM() {
-    const carousel = document.querySelector('.carousel');
     const slide = document.createElement('div');
     slide.classList.add('slide');
+
+    const $title = document.createElement('span');
+    $title.classList.add('slide__title');
+
+    const $mediaBox = document.createElement('div');
+    $mediaBox.classList.add('image-box');
 
     const $image = document.createElement('img');
     $image.setAttribute('src', `${imgSrc}`);
     $image.setAttribute('alt', `${title}`);
+    $title.textContent = `${title}`;
 
     if (data.hasOwnProperty('image')) {
-      slide.appendChild($image);
+      $mediaBox.appendChild($image);
+      $mediaBox.appendChild($title);
+      slide.appendChild($mediaBox);
     }
 
     const $video = document.createElement('video');
@@ -24,7 +32,9 @@ function carouselFactory(data) {
     $source.setAttribute('type', 'video/mp4');
 
     if (data.hasOwnProperty('video')) {
-      slide.appendChild($video);
+      $mediaBox.appendChild($video);
+      $mediaBox.appendChild($title);
+      slide.appendChild($mediaBox);
     }
 
     return slide;

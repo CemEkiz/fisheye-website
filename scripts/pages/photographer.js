@@ -152,6 +152,8 @@ async function slideCarousel() {
 
 async function displayCarousel(medias) {
   const carousel = document.querySelector('.carousel');
+  const slideWrapper = document.createElement('div');
+  slideWrapper.classList.add('slide-wrapper');
 
   // Buttons
   const btnSliderRight = document.createElement('button');
@@ -191,7 +193,8 @@ async function displayCarousel(medias) {
   medias.forEach(media => {
     const carouselModel = carouselFactory(media);
     const carouselSlideDOM = carouselModel.getCarouselSlideDOM();
-    carousel.appendChild(carouselSlideDOM);
+    slideWrapper.appendChild(carouselSlideDOM);
+    carousel.appendChild(slideWrapper);
   });
 
   slideCarousel();
