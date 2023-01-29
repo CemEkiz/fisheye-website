@@ -68,7 +68,16 @@
   right: 0;
 }
 
-.arrow-icon {
+.slider__btn--close {
+  top: 10px;
+  right: 10px;
+}
+
+.carousel-icon {
   font-size: 48px;
   color: cornflowerblue;
+}
+
+.carousel-icon.carousel-icon--close {
+  font-size: 40px;
 }

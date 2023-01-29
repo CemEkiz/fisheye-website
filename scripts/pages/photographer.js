@@ -157,22 +157,36 @@ async function displayCarousel(medias) {
   const btnSliderRight = document.createElement('button');
   btnSliderRight.classList.add('slider__btn', 'slider__btn--right');
   const iconRight = document.createElement('i');
-  iconRight.classList.add('uil', 'uil-angle-right-b', 'arrow-icon');
+  iconRight.classList.add('uil', 'uil-angle-right-b', 'carousel-icon');
   btnSliderRight.appendChild(iconRight);
   carousel.appendChild(btnSliderRight);
 
   const btnSliderLeft = document.createElement('button');
   btnSliderLeft.classList.add('slider__btn', 'slider__btn--left');
   const iconLeft = document.createElement('i');
-  iconLeft.classList.add('uil', 'uil-angle-left-b', 'arrow-icon');
+  iconLeft.classList.add('uil', 'uil-angle-left-b', 'carousel-icon');
   btnSliderLeft.appendChild(iconLeft);
   carousel.appendChild(btnSliderLeft);
 
-  // TODO: Use this function with a close button
+  // Close Button
+  const btnSliderClose = document.createElement('button');
+  btnSliderClose.classList.add('slider__btn', 'slider__btn--close');
+  const iconClose = document.createElement('i');
+  iconClose.classList.add(
+    'uil',
+    'uil-times',
+    'carousel-icon',
+    'carousel-icon--close'
+  );
+  btnSliderClose.appendChild(iconClose);
+  carousel.appendChild(btnSliderClose);
+
   const closeLightbox = () => {
     const lightbox = document.querySelector('.lightbox');
     lightbox.style.display = 'none';
   };
+
+  btnSliderClose.addEventListener('click', closeLightbox);
 
   medias.forEach(media => {
     const carouselModel = carouselFactory(media);
