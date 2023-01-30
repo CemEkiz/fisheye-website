@@ -19,7 +19,11 @@ async function createPhotographerSection() {
     return photographer.id === id;
   });
 
+<<<<<<< HEAD
   // Display the photographer header in his own page
+=======
+  // Display the photographer datas (UI) in his own page
+>>>>>>> caa7f1c81b8d77e7dd7597988785dcd6830fb0dd
   const photographHeader = document.querySelector('.photograph-header');
   const $photographerInfos = document.createElement('div');
   $photographerInfos.classList.add('photograph-infos');
@@ -205,11 +209,19 @@ async function createCarousel(medias) {
   });
 }
 
+<<<<<<< HEAD
 /* -------------- LIKES BAR -------------- */
 
 /* -------------- INIT -------------- */
 
 const init = async () => {
+=======
+/* -------------- INIT -------------- */
+
+const init = async () => {
+  const mediaCards = document.querySelectorAll('.medias__card__top');
+
+>>>>>>> caa7f1c81b8d77e7dd7597988785dcd6830fb0dd
   // Open the lightbox
   const openLightbox = () => {
     const lightbox = document.querySelector('.lightbox');
@@ -222,7 +234,10 @@ const init = async () => {
 
   // If a media is clicked, then open the lightbox
   // and at the corresponding slide
+<<<<<<< HEAD
   const mediaCards = document.querySelectorAll('.medias__card__top');
+=======
+>>>>>>> caa7f1c81b8d77e7dd7597988785dcd6830fb0dd
   mediaCards.forEach((mediaCard, i) => {
     mediaCard.addEventListener('click', () => {
       openLightbox();
