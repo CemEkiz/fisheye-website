@@ -44,7 +44,10 @@ function mediasFactory(data) {
     $mediasCardBottom.appendChild($title);
 
     const $likes = document.createElement('span');
-    $likes.textContent = `${likes} ❤`;
+    $likes.textContent = `${likes}`;
+    const $heartIcon = document.createElement('img');
+    $heartIcon.setAttribute('src', 'assets/icons/heart.svg');
+    $likes.appendChild($heartIcon);
     $mediasCardBottom.appendChild($likes);
 
     card.appendChild($mediasCardBottom);

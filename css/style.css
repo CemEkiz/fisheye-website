@@ -407,3 +407,31 @@ form input {
   border: none;
   border-radius: 5px;
 }
+
+.infobar {
+  position: fixed;
+  bottom: 0;
+  right: 100px;
+  background-color: var(--clr-secondary-200);
+  border-radius: 6px 6px 0 0;
+  padding: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.infobar__likes-container {
+  display: flex;
+  align-items: center;
+}
+
+.infobar__likes-container span {
+  margin-right: 8px;
+}
+
+.infobar__likes-container img {
+  width: 18px;
+  fill: #fff;
+}

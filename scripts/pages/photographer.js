@@ -19,7 +19,7 @@ async function createPhotographerSection() {
     return photographer.id === id;
   });
 
-  // Display the photographer datas (UI) in his own page
+  // Display the photographer header in his own page
   const photographHeader = document.querySelector('.photograph-header');
   const $photographerInfos = document.createElement('div');
   $photographerInfos.classList.add('photograph-infos');
@@ -38,6 +38,27 @@ async function createPhotographerSection() {
   $avatar.setAttribute('alt', 'Profile picture of the photographer');
   photographHeader.prepend($photographerInfos);
   photographHeader.appendChild($avatar);
+
+  // Display the photographer price/likes bar
+  const $infobar = document.createElement('div');
+  $infobar.classList.add('infobar');
+  const $likesContainer = document.createElement('div');
+  $likesContainer.classList.add('infobar__likes-container');
+  const $infobarLikes = document.createElement('span');
+  $infobarLikes.classList.add('infobar__nb-likes');
+  $infobarLikes.textContent = '1200';
+  const $infobarIcon = document.createElement('img');
+  $infobarIcon.setAttribute('src', 'assets/icons/heart-black.svg');
+  $infobarIcon.classList.add('infobar__icon');
+  $likesContainer.appendChild($infobarLikes);
+  $likesContainer.appendChild($infobarIcon);
+  const $infobarPrice = document.createElement('span');
+  $infobarPrice.classList.add('infobar__price');
+  $infobarPrice.textContent = '300€ / jour';
+  $infobar.appendChild($likesContainer);
+  $infobar.appendChild($infobarPrice);
+  const $main = document.getElementById('main');
+  $main.appendChild($infobar);
 }
 
 createPhotographerSection();
@@ -183,6 +204,8 @@ async function createCarousel(medias) {
     carousel.appendChild(slideWrapper);
   });
 }
+
+/* -------------- LIKES BAR -------------- */
 
 /* -------------- INIT -------------- */
 
