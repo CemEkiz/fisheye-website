@@ -1,8 +1,3 @@
-// TODO: Créer une fonction factory mediasFactory (cf. photographer.js)
-// Vérifier si chaque média est img ou video et créer balise img ou video (hasProperty)
-// Pour le tri, faut-il utiliser 'option' ou 'checkbox' en input ? Et voir comment changer l'apparence de ces inputs avec le CSS
-// Aucun des 2, il vaut mieux faire un input custom (avec div, DOM manip etc)
-
 function mediasFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
@@ -42,11 +37,15 @@ function mediasFactory(data) {
     const $title = document.createElement('h2');
     $title.textContent = `${title}`;
     $mediasCardBottom.appendChild($title);
-
-    const $likes = document.createElement('span');
-    $likes.textContent = `${likes}`;
+    const $likes = document.createElement('div');
+    $likes.classList.add('likes');
+    const $nbLikes = document.createElement('span');
+    $nbLikes.classList.add('likes__number');
+    $nbLikes.textContent = `${likes}`;
     const $heartIcon = document.createElement('img');
+    $heartIcon.classList.add('likes__icon');
     $heartIcon.setAttribute('src', 'assets/icons/heart.svg');
+    $likes.appendChild($nbLikes);
     $likes.appendChild($heartIcon);
     $mediasCardBottom.appendChild($likes);
 

@@ -141,7 +141,7 @@ main {
   font-weight: 400;
 }
 
-.medias__card__bottom span {
+.likes {
   color: var(--clr-primary-400);
   font-size: 20px;
   line-height: 1;
@@ -150,8 +150,9 @@ main {
   align-items: center;
 }
 
-.medias__card__bottom span img {
+.likes__icon {
   margin-left: 6px;
+  cursor: pointer;
 }
 
 .modal-diapo {
