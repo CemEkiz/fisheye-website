@@ -54,7 +54,7 @@ async function createPhotographerSection() {
   $likesContainer.appendChild($infobarIcon);
   const $infobarPrice = document.createElement('span');
   $infobarPrice.classList.add('infobar__price');
-  $infobarPrice.textContent = '300€ / jour';
+  $infobarPrice.textContent = `${photographerDatas[0].price}€ / jour`;
   $infobar.appendChild($likesContainer);
   $infobar.appendChild($infobarPrice);
   const $main = document.getElementById('main');
@@ -86,7 +86,8 @@ const getPhotographerMedias = async () => {
 async function displayData(medias) {
   const mediasSection = document.querySelector('.medias');
 
-  // TODO: Make the sort here
+  // TODO: Make the sort here : delete everything (in the media grid & in the carousel),
+  // sort the medias datas then re-render
 
   medias.forEach(media => {
     const mediaModel = mediasFactory(media);
@@ -219,6 +220,14 @@ const init = async () => {
   // Init the creation of the medias grid in the UI
   const medias = await getPhotographerMedias();
   displayData(medias);
+
+  let totalLikes = 0;
+
+  medias.forEach(photographerMedia => {
+    totalLikes += photographerMedia.likes;
+  });
+
+  document.querySelector('.infobar__nb-likes').textContent = `${totalLikes}`;
 
   // If a media is clicked, then open the lightbox
   // and at the corresponding slide
