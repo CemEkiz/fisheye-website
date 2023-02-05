@@ -206,8 +206,6 @@ async function createCarousel(medias) {
   });
 }
 
-/* -------------- LIKES BAR -------------- */
-
 /* -------------- INIT -------------- */
 
 const init = async () => {
@@ -221,13 +219,24 @@ const init = async () => {
   const medias = await getPhotographerMedias();
   displayData(medias);
 
+  // Put the sum of likes from the data in the totalLikes variable
   let totalLikes = 0;
-
   medias.forEach(photographerMedia => {
     totalLikes += photographerMedia.likes;
   });
 
-  document.querySelector('.infobar__nb-likes').textContent = `${totalLikes}`;
+  // Display the total of likes in the UI from the totalLikes variable
+  const infoBarLikes = document.querySelector('.infobar__nb-likes');
+  infoBarLikes.textContent = `${totalLikes}`;
+
+  // Increase the number of likes by 1 if the heart icon is clicked
+  const mediaLikesIcon = document.querySelectorAll('.likes__icon');
+  mediaLikesIcon.forEach(mediaLikeIcon => {
+    mediaLikeIcon.addEventListener('click', function () {
+      mediaLikeIcon.previousElementSibling.textContent++;
+      infoBarLikes.textContent++;
+    });
+  });
 
   // If a media is clicked, then open the lightbox
   // and at the corresponding slide
