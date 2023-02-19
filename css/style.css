@@ -321,8 +321,9 @@ main {
 /* ---------------- FORM MODAL ---------------- */
 
 .contact_button {
+  font-family: inherit;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   color: white;
   padding: 11px;
   width: 170px;
@@ -435,4 +436,119 @@ form input {
 .infobar__likes-container img {
   width: 18px;
   fill: #fff;
+}
+
+/* ---------------- SELECT MENU ---------------- */
+
+.dropdown-section {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+.dropdown {
+  margin-left: 30px;
+}
+
+.dropdown__selected {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.dropdown__btn {
+  display: flex;
+  height: 55px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 250px;
+  padding: 0 20px;
+  background-color: #901c1c;
+  border-radius: 8px;
+}
+.dropdown__options {
+  position: absolute;
+  width: 250px;
+  overflow-y: auto;
+  max-height: 295px;
+  padding: 0 20px;
+  background-color: red;
+  animation-name: fadeInDown;
+  -webkit-animation-name: fadeInDown;
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-fill-mode: both;
+  background-color: #901c1c;
+  border-radius: 0 0 8px 8px;
+}
+.dropdown__option {
+  display: flex;
+  /* width: 100%; */
+  height: 55px;
+  cursor: pointer;
+  align-items: center;
+  border-top: 1px solid #fff;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.dropdown__option:hover {
+  background-color: #5c1616;
+}
+
+.dropdown__option-content {
+  font-size: 18px;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.dropdown.active .dropdown__options {
+  display: block;
+  opacity: 0;
+  z-index: 10;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+}
+
+.option--active {
+  display: none !important;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  color: #fff;
+  /* transform: rotate(180deg); */
+  transition: all 0.3s;
 }

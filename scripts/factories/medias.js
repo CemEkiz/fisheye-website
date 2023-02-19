@@ -2,7 +2,7 @@ function mediasFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price } = data;
 
   const imgSrc = `assets/medias/${image}`;
-  const videoSrc = `/assets/medias/${video}`;
+  const videoSrc = `assets/medias/${video}`;
 
   function getMediaCardDOM() {
     const card = document.createElement('div');
@@ -13,22 +13,22 @@ function mediasFactory(data) {
     const $mediasCardBottom = document.createElement('div');
     $mediasCardBottom.classList.add('medias__card__bottom');
 
-    const $image = document.createElement('img');
-    $image.setAttribute('src', `${imgSrc}`);
-    $image.setAttribute('alt', `${title}`);
-
     if (data.hasOwnProperty('image')) {
+      const $image = document.createElement('img');
+      $image.setAttribute('src', `${imgSrc}`);
+      $image.setAttribute('alt', `${title}`);
+
       $mediasCardTop.appendChild($image);
       card.appendChild($mediasCardTop);
     }
 
-    const $video = document.createElement('video');
-    $video.setAttribute('controls', '');
-    const $source = document.createElement('source');
-    $source.setAttribute('src', videoSrc);
-    $source.setAttribute('type', 'video/mp4');
-
     if (data.hasOwnProperty('video')) {
+      const $video = document.createElement('video');
+      $video.setAttribute('controls', '');
+      const $source = document.createElement('source');
+      $source.setAttribute('src', videoSrc);
+      $source.setAttribute('type', 'video/mp4');
+
       $video.appendChild($source);
       $mediasCardTop.appendChild($video);
       card.appendChild($mediasCardTop);
