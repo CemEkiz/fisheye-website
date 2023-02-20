@@ -145,6 +145,10 @@ main {
 .medias__card__bottom h2 {
   color: var(--clr-primary-400);
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
+  overflow: hidden;
 }
 
 .likes {
