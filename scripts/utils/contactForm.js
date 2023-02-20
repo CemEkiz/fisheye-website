@@ -13,6 +13,12 @@ function closeModal() {
   form.reset();
 }
 
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
 // Form Validation
 const firstName = document.getElementById('first-name');
 const lastName = document.getElementById('last-name');

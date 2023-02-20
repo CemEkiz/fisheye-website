@@ -7,6 +7,7 @@ function carouselFactory(data) {
   function getCarouselSlideDOM() {
     const slide = document.createElement('div');
     slide.classList.add('slide');
+    slide.setAttribute('aria-label', 'Image closeup view');
 
     const $title = document.createElement('span');
     $title.classList.add('slide__title');

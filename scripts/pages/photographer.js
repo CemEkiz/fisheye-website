@@ -21,6 +21,11 @@ async function createPhotographerSection() {
 
   const modalPhotographer = document.querySelector('.modal__photographer');
   modalPhotographer.textContent = `${photographerDatas[0].name}`;
+  const contactButton = document.querySelector('.contact_button');
+  contactButton.setAttribute(
+    'aria-label',
+    `Contact me ${photographerDatas[0].name}`
+  );
 
   // Display the photographer header in his own page
   const photographHeader = document.querySelector('.photograph-header');
@@ -358,6 +363,7 @@ async function createCarousel(medias) {
   // Button Right
   const btnSliderRight = document.createElement('button');
   btnSliderRight.classList.add('slider__btn', 'slider__btn--right');
+  btnSliderRight.setAttribute('aria-label', 'Next image');
   const iconRight = document.createElement('img');
   iconRight.setAttribute('src', 'assets/icons/chevron-right.svg');
   iconRight.classList.add('carousel-icon');
@@ -367,6 +373,7 @@ async function createCarousel(medias) {
   // Button Left
   const btnSliderLeft = document.createElement('button');
   btnSliderLeft.classList.add('slider__btn', 'slider__btn--left');
+  btnSliderLeft.setAttribute('aria-label', 'Previous image');
   const iconLeft = document.createElement('img');
   iconLeft.setAttribute('src', 'assets/icons/chevron-left.svg');
   iconLeft.classList.add('carousel-icon');
@@ -376,6 +383,7 @@ async function createCarousel(medias) {
   // Close Button
   const btnSliderClose = document.createElement('button');
   btnSliderClose.classList.add('slider__btn', 'slider__btn--close');
+  btnSliderClose.setAttribute('aria-label', 'Close dialog');
   const iconClose = document.createElement('img');
   iconClose.setAttribute('src', 'assets/icons/close-lightbox.svg');
   iconClose.classList.add('carousel-icon', 'carousel-icon--close');
@@ -388,6 +396,13 @@ async function createCarousel(medias) {
     lightbox.style.display = 'none';
   };
   btnSliderClose.addEventListener('click', closeLightbox);
+
+  // Close the lightbox when the escape key is pressed
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
 
   // Create a slide in the carousel for each media
   medias.forEach(media => {
