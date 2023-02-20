@@ -7,10 +7,16 @@
   --clr-text-400: #525252;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: calc(1em + 0.5rem);
 }
 
 body {
@@ -25,7 +31,7 @@ header {
   align-items: center;
   height: 90px;
   max-width: 1320px;
-  margin: 0 auto;
+  margin: 16px auto;
   padding: 0 60px;
 }
 
@@ -287,7 +293,7 @@ main {
   justify-content: space-between;
   height: 300px;
   max-width: 1200px;
-  padding: 20px 60px;
+  padding: 0 60px;
   margin: 0 auto;
 }
 
@@ -325,13 +331,16 @@ main {
   font-size: 20px;
   font-weight: 700;
   color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
+  padding: 24px 32px;
   border: none;
   background-color: var(--clr-primary-400);
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.photograph-header > .contact_button:hover {
+  background-color: #db8876;
 }
 
 .modal {
@@ -344,25 +353,32 @@ main {
   justify-content: space-between;
   padding: 35px;
   margin: auto;
-  position: absolute;
+  position: fixed;
   top: 50%;
   right: 50%;
+  z-index: 999;
   transform: translate(50%, -50%);
 }
 
 .modal header {
-  justify-content: space-between;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-bottom: 48px;
+  height: 120px;
 }
 
 .modal header img {
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .modal header h2 {
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
+  line-height: 1;
 }
 
 form {
@@ -375,6 +391,7 @@ form {
 form label {
   color: #312e2e;
   font-size: 36px;
+  margin-bottom: 8px;
 }
 
 form div {
@@ -445,7 +462,7 @@ form input {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  padding: 60px 60px 0 60px;
   font-weight: bold;
 }
 

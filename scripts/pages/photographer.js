@@ -19,6 +19,9 @@ async function createPhotographerSection() {
     return photographer.id === id;
   });
 
+  const modalPhotographer = document.querySelector('.modal__photographer');
+  modalPhotographer.textContent = `${photographerDatas[0].name}`;
+
   // Display the photographer header in his own page
   const photographHeader = document.querySelector('.photograph-header');
   const $photographerInfos = document.createElement('div');

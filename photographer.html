@@ -22,7 +22,7 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <a href="index.html">
         <img src="assets/images/logo.png" class="logo" />
       </a>
@@ -39,8 +39,11 @@
     <div class="overlay" onclick="closeModal()"></div>
     <div class="modal" id="contact_modal">
       <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <h2>Contactez-moi <br /><span class="modal__photographer"></span></h2>
+        <img
+          src="assets/icons/close.svg"
+          onclick="closeModal()"
+          class="icon-close-modal" />
       </header>
       <form class="form">
         <div>

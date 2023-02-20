@@ -3,6 +3,8 @@ function photographerFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
+  // modalPhotographer.textContent = `test`;
+
   function getUserCardDOM() {
     const article = document.createElement('article');
 
