@@ -17,6 +17,7 @@ function mediasFactory(data) {
       const $image = document.createElement('img');
       $image.setAttribute('src', `${imgSrc}`);
       $image.setAttribute('alt', `${title}`);
+      $image.setAttribute('tabindex', '0');
 
       $mediasCardTop.appendChild($image);
       card.appendChild($mediasCardTop);
@@ -25,6 +26,8 @@ function mediasFactory(data) {
     if (data.hasOwnProperty('video')) {
       const $video = document.createElement('video');
       $video.setAttribute('controls', '');
+      $video.setAttribute('alt', `${title}`);
+      $video.setAttribute('tabindex', '0');
       const $source = document.createElement('source');
       $source.setAttribute('src', videoSrc);
       $source.setAttribute('type', 'video/mp4');
@@ -36,15 +39,18 @@ function mediasFactory(data) {
 
     const $title = document.createElement('h2');
     $title.textContent = `${title}`;
+    $title.setAttribute('tabindex', '0');
     $mediasCardBottom.appendChild($title);
     const $likes = document.createElement('div');
     $likes.classList.add('likes');
+    $likes.setAttribute('tabindex', '0');
     const $nbLikes = document.createElement('span');
     $nbLikes.classList.add('likes__number');
     $nbLikes.textContent = `${likes}`;
     const $heartIcon = document.createElement('img');
     $heartIcon.classList.add('likes__icon');
     $heartIcon.setAttribute('src', 'assets/icons/heart.svg');
+    $heartIcon.setAttribute('alt', 'likes');
     $likes.appendChild($nbLikes);
     $likes.appendChild($heartIcon);
     $mediasCardBottom.appendChild($likes);

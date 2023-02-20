@@ -13,10 +13,14 @@ function photographerFactory(data) {
 
     const $avatar = document.createElement('img');
     $avatar.setAttribute('src', picture);
-    $avatar.setAttribute('alt', 'Profile picture of the photographer');
+    $avatar.setAttribute('alt', `${name}`);
 
     const $name = document.createElement('h2');
     $name.textContent = name;
+
+    const $photographerDatas = document.createElement('div');
+    $photographerDatas.classList.add('home__photographer-data');
+    $photographerDatas.setAttribute('tabindex', '0');
 
     const $location = document.createElement('h3');
     $location.textContent = `${city}, ${country}`;
@@ -27,13 +31,15 @@ function photographerFactory(data) {
     const $price = document.createElement('p');
     $price.textContent = `${price}€/jour`;
 
+    $photographerDatas.appendChild($location);
+    $photographerDatas.appendChild($bio);
+    $photographerDatas.appendChild($price);
+
     $link.appendChild($avatar);
     $link.appendChild($name);
 
     article.appendChild($link);
-    article.appendChild($location);
-    article.appendChild($bio);
-    article.appendChild($price);
+    article.appendChild($photographerDatas);
     return article;
   }
 

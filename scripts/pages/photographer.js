@@ -28,23 +28,30 @@ async function createPhotographerSection() {
   $photographerInfos.classList.add('photograph-infos');
   const $name = document.createElement('h2');
   $name.textContent = `${photographerDatas[0].name}`;
+  $name.setAttribute('tabindex', '2');
+  const $photographerDatas = document.createElement('div');
+  $photographerDatas.classList.add('photographer-datas');
+  $photographerDatas.setAttribute('tabindex', '2');
   const $location = document.createElement('h3');
   $location.textContent = `${photographerDatas[0].city}, ${photographerDatas[0].country}`;
   const $bio = document.createElement('p');
   $bio.textContent = `${photographerDatas[0].tagline}`;
   $photographerInfos.appendChild($name);
-  $photographerInfos.appendChild($location);
-  $photographerInfos.appendChild($bio);
+  $photographerInfos.appendChild($photographerDatas);
+  $photographerDatas.appendChild($location);
+  $photographerDatas.appendChild($bio);
   const picture = `assets/photographers/${photographerDatas[0].portrait}`;
   const $avatar = document.createElement('img');
   $avatar.setAttribute('src', picture);
-  $avatar.setAttribute('alt', 'Profile picture of the photographer');
+  $avatar.setAttribute('alt', `${photographerDatas[0].name}`);
+  $avatar.setAttribute('tabindex', '2');
   photographHeader.prepend($photographerInfos);
   photographHeader.appendChild($avatar);
 
   // Display the photographer price/likes bar
   const $infobar = document.createElement('div');
   $infobar.classList.add('infobar');
+  $infobar.setAttribute('tabindex', '2');
   const $likesContainer = document.createElement('div');
   $likesContainer.classList.add('infobar__likes-container');
   const $infobarLikes = document.createElement('span');
@@ -117,7 +124,7 @@ const createSortUI = () => {
     <div class="dropdown-section">
       <div>Trier par</div>
       <div class="dropdown">
-        <div class="dropdown__btn">
+        <div class="dropdown__btn" tabindex="0" aria-label="Order by" role="button" aria-haspopup="listbox" aria-expanded>
           <span class="dropdown__selected">Popularité</span>
           <span class="material-icons arrow-icon">expand_more</span>
         </div>
