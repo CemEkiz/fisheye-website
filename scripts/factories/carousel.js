@@ -32,6 +32,7 @@ function carouselFactory(data) {
       const $source = document.createElement('source');
       $source.setAttribute('src', videoSrc);
       $source.setAttribute('type', 'video/mp4');
+      $video.appendChild($source);
 
       $mediaBox.appendChild($video);
       $mediaBox.appendChild($title);

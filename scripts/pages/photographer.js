@@ -19,6 +19,11 @@ async function createPhotographerSection() {
     return photographer.id === id;
   });
 
+  // If ID doesn't exist, then return to homepage
+  if (photographerDatas.length === 0) {
+    document.location.href = 'index.html';
+  }
+
   const modalPhotographer = document.querySelector('.modal__photographer');
   modalPhotographer.textContent = `${photographerDatas[0].name}`;
   const contactButton = document.querySelector('.contact_button');
@@ -81,9 +86,7 @@ createPhotographerSection();
 /* -------------- LIKE & LIGHTBOX -------------- */
 
 // Increase the number of likes by 1 if the heart icon is clicked
-const handleLike = async () => {
-  const medias = await getPhotographerMedias();
-
+const handleLike = medias => {
   // Put the sum of likes from the data in the totalLikes variable
   let totalLikes = 0;
   medias.forEach(photographerMedia => {
@@ -423,7 +426,7 @@ const init = async () => {
   // Init the creation of the carousel in the lightbox
   createCarousel(medias);
 
-  handleLike();
+  handleLike(medias);
   handleLightbox();
 };
 init();

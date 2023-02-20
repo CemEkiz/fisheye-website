@@ -25,7 +25,6 @@ function mediasFactory(data) {
 
     if (data.hasOwnProperty('video')) {
       const $video = document.createElement('video');
-      $video.setAttribute('controls', '');
       $video.setAttribute('alt', `${title}`);
       $video.setAttribute('tabindex', '0');
       const $source = document.createElement('source');
