@@ -70,6 +70,7 @@ async function createPhotographerSection() {
   const $infobarIcon = document.createElement('img');
   $infobarIcon.setAttribute('src', 'assets/icons/heart-black.svg');
   $infobarIcon.classList.add('infobar__icon');
+  $infobarIcon.setAttribute('alt', 'Like');
   $likesContainer.appendChild($infobarLikes);
   $likesContainer.appendChild($infobarIcon);
   const $infobarPrice = document.createElement('span');
